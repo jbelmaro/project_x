@@ -1,6 +1,6 @@
-import withAuth from "../../helpers/withAuth";
+import withAuth from "../helpers/withAuth";
 import React from "react";
-import Nav from "../../components/nav";
+import Nav from "../components/nav";
 class Dashboard extends React.Component {
   render() {
     return (

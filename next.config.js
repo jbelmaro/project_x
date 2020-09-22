@@ -1,5 +1,8 @@
+const { nextI18NextRewrites } = require('next-i18next/rewrites')
 const webpack = require("webpack");
 require("dotenv").config();
+const localeSubpaths = {}
+
 module.exports = {
   webpack: config => {
     const env = Object.keys(process.env).reduce((acc, curr) => {
@@ -8,5 +11,9 @@ module.exports = {
     }, {});
     config.plugins.push(new webpack.DefinePlugin(env));
     return config;
-  }
+  },
+  rewrites: async () => nextI18NextRewrites(localeSubpaths),
+  publicRuntimeConfig: {
+    localeSubpaths,
+  },
 };
